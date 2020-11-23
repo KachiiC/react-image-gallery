@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  margin: auto;
+  padding: 50px 0px;
+}
+
+.search-button,
+.input-form {
+  padding: 10px;
+}
+
+.input-form {
+  width: 300px;
+}
