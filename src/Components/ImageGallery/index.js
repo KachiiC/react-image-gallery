@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const ImageGallery = ({ images }) => { 
 
     const [imageIndex, setImageIndex] = useState(1); 
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
     const previousImage = () => {
         (imageIndex === 0) ? 
@@ -19,21 +20,25 @@ const ImageGallery = ({ images }) => {
           setImageIndex(0):setImageIndex(prevWord => prevWord + 1);
     }
 
+    const galleryTotal = [0,1,2,3,4]
 
-    const displayedImages = (
-      <div>
-        <img src={images[imageIndex]} alt="this-pic" className="carousel-image" />
-        <img src={images[imageIndex + 1]} alt="this-pic" className="carousel-image" />
-        <img src={images[imageIndex + 2]} alt="this-pic" className="carousel-image" />
-        <img src={images[imageIndex + 3]} alt="this-pic" className="carousel-image" />
-        <img src={images[imageIndex + 4]} alt="this-pic" className="carousel-image" />
-      </div>
-    )
+    const displayedImages = galleryTotal.map((item) => {
+      
+      const indexNumber = imageIndex + item;
+      
+      return (
+          <img src={images[indexNumber]} 
+            alt="this-pic" 
+            className="carousel-image" 
+            onClick={() => setSelectedIndex(indexNumber) }/>
+      )
+
+    })
   
     return (
         <div className="gallery-container">
-          <h1>Images</h1>
-          <img src={images[imageIndex]} alt="" className="current-image"/>
+          <img src={images[selectedIndex]} alt="selected" 
+            className="current-image" />
           <div className="gallery-images">
           <FontAwesomeIcon icon={faAngleDoubleLeft}
               size="2x" 

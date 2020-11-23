@@ -1,21 +1,20 @@
 .gallery-container {
     margin: auto;
     text-align: center;
-    border: solid 1px black;
 }
 
 .gallery-images{
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    border: 1px solid black;
     width: 600px;
 }
 
 .carousel-image {
     height: 45px;
     width: 80px;
-    padding: 12px;
+    margin: 12px;
+    border: 1px solid black;
 }
 
 .current-image {
